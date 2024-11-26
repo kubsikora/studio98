@@ -1,0 +1,20 @@
+{
+  "welcome": "STUDIO98 pergole tarasowe oraz ogrodowe",
+  "FirstSen": "STUDIO98 oferuje pergole tarasowe oraz ogrodowe, dzięki którym stworzysz wymarzone miejsce pracy, relaksu i spotkań z przyjaciółmi niezależnie od pogody.",
+  "Menu": {
+    "main": "Strona główna",
+    "photos": "Galeria",
+    "phone": "Kontakt"
+  },
+  "Lower": {
+    "t1": "Stalowe pergole, wyposażone w zadaszenie, zapewnią idealną ochronę przed słońcem.",
+    "t2": "Tworzymy pergole ze sztywnej konstrukcji stalowej wraz z poszyciem tkaninowym.",
+    "t3": "Drewniane ruchome panele żaluzjowe wykonane z modrzewia syberyjskiego to idealna ochrona przed wiatrem oraz gwarancja zachowania intymności.",
+    "t4": "Posiadamy ponad pięćdziesiąt kolorów materiału wodoodpornego, które zaspokoją nawet te najbardziej wymagające gusta.",
+    "t5": "Jeśli nie jesteś pewien efektu końcowego możemy przygotować dla Ciebie bezpłatną wizualizację."
+  },
+  "contact": {
+    "form": "Naciśni poniższy guzik i wypełni formularz zgloszeniowy na którego podstawie będziemy mogli wycenić twój projekt.",
+    "form_button": "Przenieś do formularza"
+  }
+}
