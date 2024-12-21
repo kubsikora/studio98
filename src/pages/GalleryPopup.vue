@@ -61,4 +61,15 @@ export default defineComponent({
   max-width: 60%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
 }
+@media only screen and (max-width: 600px) {
+  .window {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    max-height: 40%;
+    width: 90%;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+}
 </style>

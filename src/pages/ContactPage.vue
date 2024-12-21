@@ -1,13 +1,10 @@
 <template>
   <center>
-    <p
-      class="text-h4 center q-pa-xl text-white"
-      style="margin-top: 70px; margin-bottom: 50px"
-    >
+    <p class="text-h4 center q-pa-xl text-white nazwa">
       {{ $t('Menu.phone') }}
     </p>
   </center>
-  <div class="q-gutter-md row justify-center">
+  <div class="q-gutter-md row justify-center pc">
     <q-card class="text">
       <!-- <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSeV4kZsapvcyjLV51he7Fezl6X332D2EneCew0WM5ErbKM7Rw/viewform?embedded=true"
@@ -39,20 +36,59 @@
         </q-card-section>
         <q-card-section>
           <center>
-            <q-btn :label="$t('contact.form_button')" class="btn" />
+            <q-btn
+              :label="$t('contact.form_button')"
+              class="btn"
+              @click="changeDialogmobile()"
+            />
           </center>
         </q-card-section>
       </q-card>
     </div>
   </div>
+  <div style="width: 90%; margin-left: 5%" class="mobile">
+    <q-card class="contact">
+      <q-card-section>
+        <q-icon name="phone" size="50px" color="primary" />
+        <a href="tel:+48507732936">tel.: 507 732 936</a>
+      </q-card-section>
+      <q-card-section>
+        <q-icon name="email" size="50px" color="primary" />
+        <a href="mailto:r.sikora@studio98.com.pl ">r.sikora@studio98.com.pl </a>
+      </q-card-section>
+    </q-card>
+    <q-card class="form">
+      <q-card-section>
+        {{ $t('contact.form') }}
+      </q-card-section>
+      <q-card-section>
+        <center>
+          <q-btn
+            :label="$t('contact.form_button')"
+            class="btn"
+            @click="changeDialogmobile()"
+          />
+        </center>
+      </q-card-section>
+    </q-card>
+  </div>
   <div class="down" />
+  <q-dialog v-model="dialog">
+    <form-popup />
+  </q-dialog>
 </template>
 
 <script lang="ts">
+import { ref } from 'vue';
+import FormPopup from './FormPopup.vue';
 export default {
-  components: {},
+  components: { FormPopup },
   setup() {
-    return {};
+    const dialog = ref(false);
+    const changeDialogmobile = () => {
+      dialog.value = true;
+    };
+    return { dialog, changeDialogmobile };
   },
 };
 </script>
@@ -66,6 +102,8 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
+  position: relative;
+  bottom: 0;
 }
 .q-gutter-md.row {
   display: flex;
@@ -73,7 +111,10 @@ export default {
   align-items: flex-start;
   margin-top: -80px;
 }
-
+.nazwa {
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
 a {
   font-size: 1.7cap;
   text-decoration: none;
@@ -98,6 +139,9 @@ a {
   border-radius: 16px;
   color: white;
 }
+.mobile {
+  display: none;
+}
 
 .form {
   background-color: #3b3d3c;
@@ -120,5 +164,39 @@ a {
 }
 .btn:hover {
   background-color: rgb(25, 118, 210);
+}
+@media only screen and (max-width: 600px) {
+  .mobile {
+    display: block;
+  }
+  .q-gutter-md.row {
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: -80px;
+  }
+  .form {
+    background-color: #3b3d3c;
+    font-size: 17px;
+    padding: 5%;
+    width: 100%;
+    height: 250px;
+    margin-top: 15px;
+    border-radius: 16px;
+    color: white;
+  }
+  .btn {
+    margin-top: 0px;
+    border-radius: 8px;
+    width: 250px;
+    height: 50px;
+    color: white;
+    background-color: #525453;
+    transition: background-color 0.3s ease;
+  }
+  .nazwa {
+    margin-top: 60px;
+    margin-bottom: -10px;
+  }
 }
 </style>

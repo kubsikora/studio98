@@ -117,4 +117,32 @@ export default {
 q-tab {
   font-size: 30px;
 }
+@media only screen and (max-width: 600px) {
+  .tabs {
+    color: rgb(77, 0, 242);
+    height: 100%;
+    width: 400px;
+    font-size: 7px;
+  }
+  .logo {
+    display: none;
+  }
+  .Leg {
+    background: white;
+    height: 40px;
+    font-size: 15px;
+    width: 40px;
+    border: 2px solid rgb(0, 0, 0);
+    position: absolute;
+    right: 0;
+  }
+
+  .Legicon {
+    font-size: 55px;
+    color: rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    height: 30px;
+    display: none;
+  }
+}
 </style>

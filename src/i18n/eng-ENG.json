@@ -1,9 +1,20 @@
 {
   "welcome": "STUDIO98 terrace and garden pergolas",
-  "FirstSen": "STUDIO98 offers terrace and garden pergolas, allowing you to create the perfect space for work, relaxation, and socializing with friends, regardless of the weather.",
+  "FirstSen": "STUDIO98 offers terrace and garden pergolas to help you create your dream space for work, relaxation, and meetings with friends, regardless of the weather.",
   "Menu": {
-    "main": "Home page",
+    "main": "Home",
     "photos": "Gallery",
     "phone": "Contact"
+  },
+  "Lower": {
+    "t1": "Steel pergolas with roofing provide perfect protection from the sun.",
+    "t2": "We create pergolas with a rigid steel structure combined with fabric covers.",
+    "t3": "Wooden adjustable louver panels made of Siberian larch offer ideal wind protection and ensure privacy.",
+    "t4": "We offer more than fifty colors of waterproof fabric to satisfy even the most demanding tastes.",
+    "t5": "If you're unsure of the final result, we can prepare a free visualization for you."
+  },
+  "contact": {
+    "form": "Click the button below and fill out the application form, which will allow us to estimate your project.",
+    "form_button": "Go to the form"
   }
 }

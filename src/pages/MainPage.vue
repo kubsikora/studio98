@@ -1,5 +1,6 @@
 <template>
-  <p class="text-h4 b center q-pa-xl text-white" style="margin-top: 90px">
+  <q-img src="/img/logo.png" alt="logo" :size="200" class="logo q-mr-md" />
+  <p class="text-h4 b center q-pa-xl text-white">
     {{ $t('welcome') }}
   </p>
   <q-btn
@@ -44,7 +45,7 @@
 
   <div class="gradientbig" />
   <div class="divdown">
-    <table style="width: 100%; border-collapse: collapse; height: 800px">
+    <table class="table">
       <tbody>
         <tr>
           <td rowspan="3" style="width: 400px">
@@ -82,6 +83,12 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="mobiletable">
+      <div class="left-panel"></div>
+      <div class="middle-right-panel"></div>
+      <div class="top-right-panel"></div>
+    </div>
 
     <!-- <div class="left1">
       <div style="width: 80%; height: 600px; margin-left: 20%">
@@ -201,15 +208,14 @@ slide = ref(1);
   height: 300px;
 }
 
-.middle-left-panel {
-  width: 100%;
+.middle-right-panel {
+  width: 150%;
   height: 300px;
   margin-bottom: 120px;
   margin-top: 0;
 }
-
-.middle-right-panel {
-  width: 150%;
+.middle-left-panel {
+  width: 100%;
   height: 300px;
   margin-bottom: 120px;
   margin-top: 0;
@@ -287,10 +293,20 @@ td {
 .b {
   font-weight: 400;
 }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  height: 800px;
+}
+.mobiletable,
+.logo {
+  display: none;
+}
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 90px;
 }
 .carousel {
   background-color: #111312;
@@ -322,5 +338,75 @@ td {
   position: absolute;
   right: 0;
   z-index: 1;
+}
+@media only screen and (max-width: 600px) {
+  .carousel {
+    background-color: #111312;
+    height: 400px;
+    width: 100%;
+    margin-top: -30px;
+  }
+  .car-pics {
+    margin-left: 0%;
+    height: 360px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+  }
+  .text-h4 {
+    font-size: 14px;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
+  }
+  .table {
+    display: none;
+  }
+  .mobiletable {
+    display: block;
+    width: 100%;
+  }
+  .left-panel {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 10px;
+  }
+  .top-right-panel {
+    width: 100%;
+    height: 350px;
+  }
+
+  .middle-right-panel {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+  .divdown {
+    background-color: #525453;
+    height: 1100px;
+    margin-top: -1px;
+    padding-top: 20px;
+    display: flex;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .gradientbig {
+    height: 100px;
+    background: #111312;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 C10,10 30,0 50,10 C70,20 90,5 100,10 L100,20 L0,20 Z" fill=\'%23111312\'/><path d="M0,20 C10,15 30,5 50,15 C70,25 90,10 100,15 L100,20 L0,20 Z" fill=\'%23525453\'/></svg>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+  .logo {
+    max-width: 80%;
+    display: block;
+    margin-top: 80px;
+    margin-left: 10%;
+  }
 }
 </style>
