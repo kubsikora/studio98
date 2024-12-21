@@ -1,13 +1,19 @@
 <template>
-  <q-bar class="bar fixed-bar">
-    <q-tabs v-model="tab" narrow-indicator dense align="justify" class="tabs">
+  <q-bar class="bar fixed-bar bg-black">
+    <q-tabs
+      v-model="tab"
+      narrow-indicator
+      dense
+      align="justify"
+      class="tabs text-white"
+    >
       <q-tab :ripple="false" name="main" :label="$t('Menu.main')" />
       <q-tab :ripple="false" name="gallery" :label="$t('Menu.photos')" />
       <q-tab :ripple="false" name="contact" :label="$t('Menu.phone')" />
     </q-tabs>
     <q-space />
     <q-img src="/img/logo.png" alt="logo" :size="200" class="logo q-mr-md" />
-    <q-icon name="language" class="Legicon" />
+    <q-icon name="language" class="Legicon text-white" />
     <q-btn round class="Leg" :label="chosenLeg">
       <q-menu :offset="[20, 5]">
         <q-list style="min-width: 100px">
@@ -91,11 +97,11 @@ export default {
   height: 40px;
   font-size: 15px;
   width: 40px;
-  border: 2px solid rgb(77, 0, 242);
+  border: 2px solid rgb(0, 0, 0);
 }
 
 .Legicon {
-  font-size: 60px;
+  font-size: 55px;
   color: rgba(0, 0, 0, 0.1);
   margin-right: -30px;
   height: 30px;

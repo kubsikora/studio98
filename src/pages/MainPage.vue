@@ -1,5 +1,5 @@
 <template>
-  <p class="text-h4 b center q-pa-xl" style="margin-top: 90px">
+  <p class="text-h4 b center q-pa-xl text-white" style="margin-top: 90px">
     {{ $t('welcome') }}
   </p>
   <q-btn
@@ -41,32 +41,80 @@
       <q-img class="car-pics" src="/img/pergol3.png" />
     </q-carousel-slide>
   </q-carousel>
-  <CountryTemplate :text="'FirstSen'" class="gradientbig" />
-  <div class="bg">
-    <div v-for="(card, index) in cardindex" :key="index">
-      <CardTamplate
-        :text="card.text"
-        :align="card.align"
-        :color="card.color"
-        :picurl="card.picurl"
-      />
+
+  <div class="gradientbig" />
+  <div class="divdown">
+    <table style="width: 100%; border-collapse: collapse; height: 800px">
+      <tbody>
+        <tr>
+          <td rowspan="3" style="width: 400px">
+            <div class="left-panel"></div>
+          </td>
+          <td colspan="2">
+            <div class="top-panel">
+              <q-img
+                src="img/gallery/lower1.png"
+                style="
+                  max-height: 80%;
+                  max-width: 50%;
+                  margin-top: 5%;
+                  border-radius: 16px;
+                "
+              />
+            </div>
+          </td>
+          <td>
+            <div class="top-right-panel"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="middle-left-panel"></div>
+          </td>
+          <td colspan="1">
+            <div class="middle-right-panel"></div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="bottom-panel"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <div class="left1">
+      <div style="width: 80%; height: 600px; margin-left: 20%">
+        <div
+          style="
+            width: 50%;
+            background-color: white;
+            height: 100%;
+            border-radius: 32px;
+          "
+        ></div>
+        <div
+          style="
+            width: 50%;
+            background-color: white;
+            height: 30%;
+            border-radius: 32px;
+          "
+        ></div>
+      </div>
     </div>
-    <FootLayout />
+    <div class="right2">
+      <div style="background-color: white; width: 80%; height: 400px"></div>
+    </div> -->
   </div>
+  <br />
 </template>
 
 <script lang="ts">
-import CardTamplate from '../template/CardTemplate.vue';
-import CountryTemplate from '../template/CountryTemplate.vue';
-import FootLayout from '/src/layouts/FootLayout.vue';
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 export default {
-  components: {
-    FootLayout,
-    CardTamplate,
-    CountryTemplate,
-  },
+  components: {},
   setup() {
     const slide = ref<number>(1);
 
@@ -74,19 +122,19 @@ export default {
       {
         text: 'Lower.t1',
         align: true,
-        color: 'rgb(0, 180, 216)',
+        color: 'rgb(160,160,160)',
         picurl: '/img/gallery/lower1.png',
       },
       {
         text: 'Lower.t2',
         align: false,
-        color: 'rgb(0, 119, 182)',
+        color: 'rgb(129,129,129)',
         picurl: '/img/gallery/lower2.png',
       },
       {
         text: 'Lower.t3',
         align: true,
-        color: 'rgb(3, 4, 94)',
+        color: 'rgb(89,89,89)',
         picurl: '/img/gallery/lower3.png',
       },
     ];
@@ -106,11 +154,29 @@ export default {
         slide.value = slide.value + 1;
       }
     };
+    const isVisible = ref(false);
+    const animatedDiv = ref<HTMLElement | null>(null);
+
+    const handleScroll = () => {
+      if (!animatedDiv.value) return;
+      const rect = animatedDiv.value.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        isVisible.value = true;
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener('scroll', handleScroll);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll);
+    });
     return {
+      isVisible,
       slide,
       previousSlide,
       nextSlide,
-      CardTamplate,
       cardindex,
     };
   },
@@ -118,18 +184,104 @@ export default {
 </script>
 slide = ref(1);
 <style scoped>
+.left-panel {
+  width: 100%;
+  height: 700px;
+}
+
+.top-panel {
+  width: 100%;
+  height: 300px;
+  margin-bottom: -100px;
+  margin-top: -120px;
+}
+
+.top-right-panel {
+  width: 100%;
+  height: 300px;
+}
+
+.middle-left-panel {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 120px;
+  margin-top: 0;
+}
+
+.middle-right-panel {
+  width: 150%;
+  height: 300px;
+  margin-bottom: 120px;
+  margin-top: 0;
+}
+
+.bottom-panel {
+  width: 100%;
+  height: 300px;
+  margin-bottom: -100px;
+  margin-top: -120px;
+}
+
+.bottom-panel,
+.middle-left-panel,
+.middle-right-panel,
+.top-right-panel,
+.top-panel,
+.left-panel {
+  background-color: #3b3d3c;
+  border: 1px solid #3b3d3c;
+  border-radius: 32px;
+  transition: background-color 0.9s ease;
+  transition: transform 0.5s ease;
+  padding: 20px;
+}
+.bottom-panel:hover,
+.middle-left-panel:hover,
+.middle-right-panel:hover,
+.top-right-panel:hover,
+.top-panel:hover,
+.left-panel:hover {
+  background-color: #424342;
+  transform: scale(1.03);
+}
+.hidden {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+td {
+  padding: 10px;
+}
+.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 .bg {
   margin-top: -50px;
-  background: rgb(229, 227, 246);
+  background: #111312;
 }
 .gradientbig {
-  margin-top: 150px;
-  background: rgb(164, 164, 164);
-  background: linear-gradient(
-    0deg,
-    rgb(229, 227, 246) 8%,
-    rgba(255, 255, 255, 1) 84%
-  );
+  height: 200px;
+  background: #111312;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 C10,10 30,0 50,10 C70,20 90,5 100,10 L100,20 L0,20 Z" fill=\'%23111312\'/><path d="M0,20 C10,15 30,5 50,15 C70,25 90,10 100,15 L100,20 L0,20 Z" fill=\'%23525453\'/></svg>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.divdown {
+  background-color: #525453;
+  height: 1100px;
+  padding-top: 100px;
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.left1,
+.right2 {
+  width: 50%;
+  margin-top: 100px;
+  display: flex;
 }
 
 .b {
@@ -141,6 +293,7 @@ slide = ref(1);
   align-items: center;
 }
 .carousel {
+  background-color: #111312;
   height: 400px;
 }
 .car-pics {
@@ -157,7 +310,7 @@ slide = ref(1);
   width: 20px;
   height: 20px;
   font-size: 25px;
-  color: rgba(0, 0, 0, 0.6);
+  color: white;
   margin-top: 170px;
 }
 .abs-l {

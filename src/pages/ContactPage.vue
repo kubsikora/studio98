@@ -1,7 +1,7 @@
 <template>
   <center>
     <p
-      class="text-h4 center q-pa-xl"
+      class="text-h4 center q-pa-xl text-white"
       style="margin-top: 70px; margin-bottom: 50px"
     >
       {{ $t('Menu.phone') }}
@@ -45,16 +45,12 @@
       </q-card>
     </div>
   </div>
-  <FootLayout style="margin-top: 100px" />
+  <div class="down" />
 </template>
 
 <script lang="ts">
-import FootLayout from '/src/layouts/FootLayout.vue';
-
 export default {
-  components: {
-    FootLayout,
-  },
+  components: {},
   setup() {
     return {};
   },
@@ -62,6 +58,15 @@ export default {
 </script>
 
 <style scoped>
+.down {
+  height: 200px;
+  margin-top: 27px;
+  background: #111312;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 C10,10 30,0 50,10 C70,20 90,5 100,10 L100,20 L0,20 Z" fill=\'%23111312\'/><path d="M0,20 C10,15 30,5 50,15 C70,25 90,10 100,15 L100,20 L0,20 Z" fill=\'%23525453\'/></svg>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
 .q-gutter-md.row {
   display: flex;
   justify-content: center;
@@ -73,38 +78,47 @@ a {
   font-size: 1.7cap;
   text-decoration: none;
   margin-left: 20px;
-  color: rgb(93, 93, 93);
+  color: white;
   transition: transform 0.3s ease;
 }
 
 .text {
+  background-color: #3b3d3c;
   padding: 2%;
   width: 30%;
   height: 500px;
+  color: white;
   border-radius: 16px;
 }
 
 .contact {
+  background-color: #3b3d3c;
   padding: 2%;
   width: 100%;
   border-radius: 16px;
+  color: white;
 }
 
 .form {
+  background-color: #3b3d3c;
   font-size: 17px;
   padding: 5%;
   width: 100%;
   height: 300px;
   margin-top: 15px;
   border-radius: 16px;
-  color: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 .btn {
   margin-top: 20px;
   border-radius: 8px;
   width: 250px;
   height: 50px;
-  color: rgb(93, 93, 249);
-  background-color: rgba(255, 255, 255);
+  color: white;
+  background-color: #525453;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: rgb(25, 118, 210);
 }
 </style>

@@ -9,7 +9,10 @@
     </div>
     <div align="left" class="card" style="margin-right: 100px">
       <div class="innercard">
-        <p class="text-h5 center q-pb-xl q-px-xl" style="margin-top: -120px">
+        <p
+          class="text-h5 center q-pb-xl q-px-xl text-white"
+          style="margin-top: -120px"
+        >
           {{ $t(text) }}
         </p>
       </div>

@@ -2,7 +2,9 @@
   <div class="card-section-conteiner q-my-lg" :style="{ width: x }">
     <q-card
       class="my-card text-white card"
+      :class="{ 'slide-in': visible, hidden: !visible }"
       :style="{ background: color, height: y }"
+      @mouseenter="handleMouseEnter"
     >
       <q-card-section v-if="align" class="abs-r">
         <p class="text-h5 center q-py-xl q-px-md">
@@ -25,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 
 export default defineComponent({
   props: {
@@ -55,12 +57,36 @@ export default defineComponent({
     },
   },
   setup() {
-    return {};
+    const visible = ref(false);
+
+    const handleMouseEnter = () => {
+      visible.value = true;
+    };
+
+    onMounted(() => {
+      setTimeout(() => {
+        visible.value = true;
+      }, 300); // Opóźnienie, aby animacja uruchomiła się po załadowaniu komponentu
+    });
+
+    return { visible, handleMouseEnter };
   },
 });
 </script>
 
 <style scoped>
+.hidden {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 .card-section-conteiner {
   margin-left: 20%;
   padding-bottom: 20px;

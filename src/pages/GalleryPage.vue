@@ -1,6 +1,6 @@
 <template>
   <p
-    class="text-h4 center q-pa-xl"
+    class="text-h4 center q-pa-xl text-white"
     style="margin-top: 70px; margin-bottom: -20px"
   >
     {{ $t('Menu.photos') }}
@@ -34,18 +34,16 @@
     ><gallery-popup :pics="photoindex" :id="choosen"
   /></q-dialog>
   <div class="background"></div>
-  <FootLayout style="z-index: -1; margin-top: 100px" />
+  <div class="down" />
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 import GalleryPopup from './GalleryPopup.vue';
-import FootLayout from '/src/layouts/FootLayout.vue';
 
 export default {
   components: {
     GalleryPopup,
-    FootLayout,
   },
   setup() {
     const dialog = ref(false);
@@ -97,6 +95,14 @@ export default {
 </script>
 
 <style scoped>
+.down {
+  height: 200px;
+  background: #111312;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 C10,10 30,0 50,10 C70,20 90,5 100,10 L100,20 L0,20 Z" fill=\'%23111312\'/><path d="M0,20 C10,15 30,5 50,15 C70,25 90,10 100,15 L100,20 L0,20 Z" fill=\'%23525453\'/></svg>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
 .center {
   display: flex;
   justify-content: center;
