@@ -12,7 +12,20 @@
       <q-tab :ripple="false" name="contact" :label="$t('Menu.phone')" />
     </q-tabs>
     <q-space />
-    <q-img src="/img/logo.png" alt="logo" :size="200" class="logo q-mr-md" />
+    <q-icon
+      name="phone"
+      size="30px"
+      style="color: rgba(255, 255, 255, 0.7); margin-right: 1 0px"
+    />
+    <p class="q-mt-md prevent-select" style="color: rgba(255, 255, 255, 0.7)">
+      507 732 936
+    </p>
+    <q-img
+      src="/img/logo.png"
+      alt="logo"
+      :size="200"
+      class="logo q-mr-md prevent-select"
+    />
     <q-icon name="language" class="Legicon text-white" />
     <q-btn round class="Leg" :label="chosenLeg">
       <q-menu :offset="[20, 5]">
@@ -33,13 +46,14 @@
 <script lang="ts">
 import { i18n } from 'src/boot/i18n';
 import { ref, watch } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 export default {
   setup() {
     const tab = ref<string>('main');
     const chosenLeg = ref<string>('PL');
     const router = useRouter();
+    const route = useRoute();
 
     const switchLeg = (leg: string) => {
       if (leg === 'PL') {
@@ -60,6 +74,16 @@ export default {
       }
     });
 
+    const updateTabFromRoute = () => {
+      const currentPath = route.path.replace('/', '');
+      if (currentPath === '') {
+        tab.value = 'main';
+      } else if (['gallery', 'contact'].includes(currentPath)) {
+        tab.value = currentPath;
+      }
+    };
+    watch(route, updateTabFromRoute, { immediate: true });
+    updateTabFromRoute();
     return {
       tab,
       switchLeg,
@@ -71,6 +95,11 @@ export default {
 </script>
 
 <style scoped>
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .logo {
   max-width: 250px;
 }

@@ -1,51 +1,9 @@
 <template>
   <q-img src="/img/logo.png" alt="logo" :size="200" class="logo q-mr-md" />
-  <p class="text-h4 b center q-pa-xl text-white">
-    {{ $t('welcome') }}
-  </p>
-  <q-btn
-    round
-    flat
-    class="carnavigation abs-l"
-    icon="arrow_back_ios"
-    @click="previousSlide"
-  />
-  <q-btn
-    round
-    flat
-    class="carnavigation abs-r"
-    icon="arrow_forward_ios"
-    @click="nextSlide"
-  />
-  <q-carousel
-    :autoplay="10000"
-    animated
-    v-model="slide"
-    navigation
-    infinite
-    ref="carousel"
-    class="carousel"
-    control-color="white"
-    transition-prev="slide-right"
-    transition-next="slide-left"
-  >
-    <q-carousel-slide :name="1">
-      <q-img class="car-pics" src="/img/mainfoto.png" />
-    </q-carousel-slide>
-    <q-carousel-slide :name="2">
-      <q-img class="car-pics" src="/img/pergol1.png" />
-    </q-carousel-slide>
-    <q-carousel-slide :name="3">
-      <q-img class="car-pics" src="/img/pergol2.png" />
-    </q-carousel-slide>
-    <q-carousel-slide :name="4">
-      <q-img class="car-pics" src="/img/pergol3.png" />
-    </q-carousel-slide>
-  </q-carousel>
-
+  <q-img class="main-pics q-mt-xl prevent-select" src="/img/DSC_0034s.png" />
   <div class="gradientbig" />
-  <div class="divdown">
-    <table class="table">
+  <div class="divdown" style="top: 1000px">
+    <!-- <table class="table">
       <tbody>
         <tr>
           <td rowspan="3" style="width: 400px">
@@ -56,9 +14,9 @@
               <q-img
                 src="img/gallery/lower1.png"
                 style="
-                  max-height: 80%;
-                  max-width: 50%;
-                  margin-top: 5%;
+                  max-height: 100%;
+                  max-width: 100%;
+                  margin-top: 0%;
                   border-radius: 16px;
                 "
               />
@@ -82,6 +40,51 @@
           </td>
         </tr>
       </tbody>
+    </table> -->
+
+    <table>
+      <tr>
+        <td>
+          <p class="txt">
+            Tworzymy pergole ze sztywnej konstrukcji stalowej<br />
+            wraz z poszyciem tkaninowym.
+          </p>
+        </td>
+        <td>
+          <q-img
+            src="img/gallery/lower2.png"
+            style="
+              max-height: 100%;
+              height: 400px;
+              width: 850px;
+              max-width: 100%;
+              margin-left: -180px;
+              border-radius: 16px;
+            "
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <q-img
+            src="img/gallery/lower1.png"
+            style="
+              max-height: 100%;
+              height: 400px;
+              width: 750px;
+              max-width: 100%;
+              margin-top: 0%;
+              border-radius: 16px;
+            "
+          />
+        </td>
+        <td>
+          <p class="txt">
+            Stalowe pergole, wyposażone w zadaszenie,<br />
+            zapewnią idealną ochronę przed słońcem.
+          </p>
+        </td>
+      </tr>
     </table>
 
     <div class="mobiletable">
@@ -89,41 +92,70 @@
       <div class="middle-right-panel"></div>
       <div class="top-right-panel"></div>
     </div>
-
-    <!-- <div class="left1">
-      <div style="width: 80%; height: 600px; margin-left: 20%">
-        <div
-          style="
-            width: 50%;
-            background-color: white;
-            height: 100%;
-            border-radius: 32px;
-          "
-        ></div>
-        <div
-          style="
-            width: 50%;
-            background-color: white;
-            height: 30%;
-            border-radius: 32px;
-          "
-        ></div>
-      </div>
-    </div>
-    <div class="right2">
-      <div style="background-color: white; width: 80%; height: 400px"></div>
-    </div> -->
   </div>
   <br />
+  <div
+    style="
+      display: flex;
+      position: fixed;
+      width: 1800px;
+      right: -20px;
+      z-index: 10;
+      top: 0px;
+    "
+  >
+    <div style="width: 80%" />
+    <div style="width: 20%">
+      <div
+        class="text-h4 bg-white b center maintext q-pa-xl fromright"
+        style="
+          width: 100%;
+          height: 600px;
+          margin-top: 100px;
+          border-radius: 16px 0px 0px 16px;
+        "
+      >
+        <table class="prevent-select">
+          <tr>
+            Twój relaks
+            <br />
+            w cieniu
+            <strong>naszych pergoli</strong
+            ><br /><br />
+            <hr />
+          </tr>
+          <tr>
+            <p style="font-size: 27px">Skontaktuj sie z nami juz teraz</p>
+            <center>
+              <q-btn
+                flat
+                icon="connect_without_contact"
+                size="50px"
+                @click="contact"
+              />
+            </center>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <foot-layout />
 </template>
 
 <script lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
+import FootLayout from 'src/layouts/FootLayout.vue';
+import { useRouter } from 'vue-router';
 
 export default {
-  components: {},
+  components: { FootLayout },
   setup() {
     const slide = ref<number>(1);
+    const router = useRouter();
+
+    const contact = () => {
+      router.push('/contact');
+    };
 
     const cardindex = [
       {
@@ -185,12 +217,22 @@ export default {
       previousSlide,
       nextSlide,
       cardindex,
+      contact,
     };
   },
 };
 </script>
 slide = ref(1);
 <style scoped>
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.txt {
+  color: white;
+  font-size: 25px;
+}
 .left-panel {
   width: 100%;
   height: 700px;
@@ -239,7 +281,8 @@ slide = ref(1);
   border-radius: 32px;
   transition: background-color 0.9s ease;
   transition: transform 0.5s ease;
-  padding: 20px;
+  z-index: 10;
+  overflow: hidden;
 }
 .bottom-panel:hover,
 .middle-left-panel:hover,
@@ -269,10 +312,41 @@ td {
 .gradientbig {
   height: 200px;
   background: #111312;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 C10,10 30,0 50,10 C70,20 90,5 100,10 L100,20 L0,20 Z" fill=\'%23111312\'/><path d="M0,20 C10,15 30,5 50,15 C70,25 90,10 100,15 L100,20 L0,20 Z" fill=\'%23525453\'/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 C10,10 30,0 50,10 C70,20 90,5 100,10 L100,20 L0,20 Z" fill=\'%23111312\' fill-opacity=\'0.5\'/><path d="M0,20 C10,15 30,5 50,15 C70,25 90,10 100,15 L100,20 L0,20 Z" fill=\'%23525453\'/></svg>');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
+  margin-top: -00px;
+
+  z-index: 1;
+  position: relative;
+}
+.main-pics {
+  height: 800px;
+  width: 100%;
+  z-index: 0;
+  position: relative;
+  background: #111312;
+  overflow: hidden;
+}
+
+.main-pics::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(17, 19, 18, 0) 0%, #111312 100%);
+  z-index: 1;
+}
+
+.maintext {
+  z-index: 2;
+  position: relative;
+  margin-bottom: -180px;
+  margin-top: 0px;
+  color: black;
 }
 
 .divdown {
@@ -282,6 +356,7 @@ td {
   display: flex;
   padding-left: 10%;
   padding-right: 10%;
+  z-index: 10;
 }
 .left1,
 .right2 {
@@ -304,9 +379,24 @@ td {
 }
 .center {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: right;
+  align-items: right;
   margin-top: 90px;
+}
+.fromright {
+  animation-duration: 3s;
+  animation-name: slide-in;
+}
+@keyframes slide-in {
+  from {
+    translate: 150vw 0;
+    scale: 200% 1;
+  }
+
+  to {
+    translate: 0 0;
+    scale: 100% 1;
+  }
 }
 .carousel {
   background-color: #111312;
@@ -319,6 +409,7 @@ td {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
 }
+
 .card {
   width: 30%;
 }

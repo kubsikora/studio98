@@ -1,6 +1,6 @@
 <template>
   <p
-    class="text-h4 center q-pa-xl text-white"
+    class="text-h4 center q-pa-xl text-white prevent-select"
     style="margin-top: 70px; margin-bottom: -20px"
   >
     {{ $t('Menu.photos') }}
@@ -53,16 +53,18 @@
     /></q-dialog>
   </div>
   <div class="background"></div>
-  <div class="down" />
+  <foot-layout style="margin-top: 10px" />
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 import GalleryPopup from './GalleryPopup.vue';
+import FootLayout from 'src/layouts/FootLayout.vue';
 
 export default {
   components: {
     GalleryPopup,
+    FootLayout,
   },
   setup() {
     const dialog = ref(false);
@@ -155,6 +157,11 @@ export default {
 </script>
 
 <style scoped>
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .down {
   height: 200px;
   background: #111312;

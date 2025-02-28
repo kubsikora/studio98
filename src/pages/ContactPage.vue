@@ -1,6 +1,6 @@
 <template>
   <center>
-    <p class="text-h4 center q-pa-xl text-white nazwa">
+    <p class="text-h4 center q-pa-xl text-white nazwa prevent-select">
       {{ $t('Menu.phone') }}
     </p>
   </center>
@@ -72,17 +72,19 @@
       </q-card-section>
     </q-card>
   </div>
-  <div class="down" />
+  <!-- <div class="down" /> -->
   <q-dialog v-model="dialog">
     <form-popup />
   </q-dialog>
+  <foot-layout style="margin-top: 10px" :showtext="false" />
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 import FormPopup from './FormPopup.vue';
+import FootLayout from 'src/layouts/FootLayout.vue';
 export default {
-  components: { FormPopup },
+  components: { FormPopup, FootLayout },
   setup() {
     const dialog = ref(false);
     const changeDialogmobile = () => {
@@ -94,6 +96,11 @@ export default {
 </script>
 
 <style scoped>
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .down {
   height: 200px;
   margin-top: 27px;
