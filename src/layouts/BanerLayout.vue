@@ -26,7 +26,7 @@
       :size="200"
       class="logo q-mr-md prevent-select"
     />
-    <q-icon name="language" class="Legicon text-white" />
+    <!-- <q-icon name="language" class="Legicon text-white" />
     <q-btn round class="Leg" :label="chosenLeg">
       <q-menu :offset="[20, 5]">
         <q-list style="min-width: 100px">
@@ -38,7 +38,7 @@
           </q-item>
         </q-list>
       </q-menu>
-    </q-btn>
+    </q-btn> -->
     <div class="w-40" />
   </q-bar>
 </template>

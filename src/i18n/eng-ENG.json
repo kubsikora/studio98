@@ -4,7 +4,13 @@
   "Menu": {
     "main": "Home",
     "photos": "Gallery",
-    "phone": "Contact"
+    "phone": "Contact",
+    "slogan": {
+      "1": "Your relaxation",
+      "2": "in the shadow",
+      "3": "our pergolas"
+    },
+    "contact": "Contact us now"
   },
   "Lower": {
     "t1": "Steel pergolas with roofing provide perfect protection from the sun.",

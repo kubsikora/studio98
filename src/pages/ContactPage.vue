@@ -4,93 +4,146 @@
       {{ $t('Menu.phone') }}
     </p>
   </center>
-  <div class="q-gutter-md row justify-center pc">
-    <q-card class="text">
-      <!-- <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSeV4kZsapvcyjLV51he7Fezl6X332D2EneCew0WM5ErbKM7Rw/viewform?embedded=true"
-        width="118%"
-        height="490"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        style="margin-left: -10%; margin-top: -7%"
-        >Ładuję…</iframe
-      > -->
-    </q-card>
-    <div style="width: 27%">
-      <q-card class="contact">
-        <q-card-section>
-          <q-icon name="phone" size="50px" color="primary" />
-          <a href="tel:+48507732936">tel.: 507 732 936</a>
+  <div style="display: flex">
+    <div style="width: 10%" />
+    <div class="q-gutter-md q-ml-xl" style="width: 27%">
+      <q-expansion-item
+        default-opened
+        expand-separator
+        label="Adresy"
+        class="text-white"
+        style="
+          border: 1px solid white;
+          border-radius: 16px 16px 0px 0px;
+          overflow: hidden;
+        "
+      >
+        <q-card-section class="row q-pa-xs text-white">
+          <q-list class="row text-white">
+            <q-item class="col-6">
+              <div>
+                <q-item-label caption class="text-white prevent-select">
+                  {{ $t('Siedziba firmy') }}
+                </q-item-label>
+                <q-item-label class="text-bold text-grey-6">
+                  STUDIO98 Roman Sikora <br />
+                  41-923 Bytom <br />
+                  Ul. Lipowa 12 <br />
+                  NIP 626-210-94-80
+                </q-item-label>
+              </div>
+            </q-item>
+            <q-item class="col-6">
+              <div>
+                <q-item-label caption class="text-white prevent-select">
+                  {{ $t('Produkcja') }}
+                </q-item-label>
+                <q-item-label class="text-bold text-grey-6">
+                  41-902 Bytom <br />
+                  Ul. Karola Miarki 66
+                </q-item-label>
+              </div>
+            </q-item>
+          </q-list>
         </q-card-section>
-        <q-card-section>
-          <q-icon name="email" size="50px" color="primary" />
-          <a href="mailto:r.sikora@studio98.com.pl "
-            >r.sikora@studio98.com.pl
-          </a>
+      </q-expansion-item>
+      <q-expansion-item
+        default-opened
+        expand-separator
+        label="Kontakt"
+        class="text-white"
+        style="
+          border: 1px solid white;
+          overflow: hidden;
+          margin-top: -0px;
+          border-top: 0px solid white;
+        "
+      >
+        <q-card-section class="row q-pa-xs text-white">
+          <q-list class="row text-white">
+            <q-item class="col-6">
+              <div>
+                <q-item-label caption class="text-white prevent-select">
+                  {{ $t('Number telefonu') }}
+                </q-item-label>
+                <q-item-label class="text-bold text-grey-6">
+                  507-732-936
+                </q-item-label>
+              </div>
+            </q-item>
+            <q-item class="col-6">
+              <div>
+                <q-item-label caption class="text-white prevent-select">
+                  {{ $t('Email') }}
+                </q-item-label>
+                <q-item-label
+                  class="text-bold text-grey-6"
+                  style="display: flex"
+                >
+                  r.sikora@studio98.com.pl
+                  <q-btn
+                    icon="content_copy"
+                    flat
+                    dense
+                    color="grey-6"
+                    style="margin-top: -10px; margin-left: 10px"
+                    @click="copyMail()"
+                  />
+                </q-item-label>
+              </div>
+            </q-item>
+          </q-list>
         </q-card-section>
-      </q-card>
-      <q-card class="form">
-        <q-card-section>
-          {{ $t('contact.form') }}
-        </q-card-section>
-        <q-card-section>
-          <center>
-            <q-btn
-              :label="$t('contact.form_button')"
-              class="btn"
-              @click="changeDialogmobile()"
-            />
-          </center>
-        </q-card-section>
-      </q-card>
+      </q-expansion-item>
     </div>
-  </div>
-  <div style="width: 90%; margin-left: 5%" class="mobile">
-    <q-card class="contact">
-      <q-card-section>
-        <q-icon name="phone" size="50px" color="primary" />
-        <a href="tel:+48507732936">tel.: 507 732 936</a>
-      </q-card-section>
-      <q-card-section>
-        <q-icon name="email" size="50px" color="primary" />
-        <a href="mailto:r.sikora@studio98.com.pl ">r.sikora@studio98.com.pl </a>
-      </q-card-section>
-    </q-card>
-    <q-card class="form">
-      <q-card-section>
-        {{ $t('contact.form') }}
-      </q-card-section>
-      <q-card-section>
-        <center>
-          <q-btn
-            :label="$t('contact.form_button')"
-            class="btn"
-            @click="changeDialogmobile()"
-          />
-        </center>
-      </q-card-section>
-    </q-card>
+    <div
+      style="
+        width: 35%;
+        padding-top: 50px;
+        padding-left: 220px;
+        font-size: 20px;
+      "
+    >
+      <p class="text-grey-5 prevent-select">{{ $t('contact.form') }}</p>
+      <center>
+        <q-btn
+          :label="$t('contact.form_button')"
+          class="btn"
+          @click="changeDialogmobile()"
+        />
+      </center>
+    </div>
   </div>
   <!-- <div class="down" /> -->
   <q-dialog v-model="dialog">
     <form-popup />
   </q-dialog>
-  <foot-layout style="margin-top: 10px" :showtext="false" />
+  <foot-layout
+    style="margin-top: 10px; position: absolute; bottom: 0"
+    :showtext="false"
+  />
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 import FormPopup from './FormPopup.vue';
 import FootLayout from 'src/layouts/FootLayout.vue';
+import { useQuasar } from 'quasar';
 export default {
   components: { FormPopup, FootLayout },
   setup() {
     const dialog = ref(false);
+    const $q = useQuasar();
     const changeDialogmobile = () => {
       dialog.value = true;
     };
-    return { dialog, changeDialogmobile };
+    const copyMail = () => {
+      $q.notify({
+        type: 'positive',
+        message: 'Mail skopiowany do schowka',
+      });
+    };
+    return { dialog, changeDialogmobile, copyMail };
   },
 };
 </script>

@@ -1,9 +1,9 @@
 <template>
   <q-card class="card pc">
     <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSeV4kZsapvcyjLV51he7Fezl6X332D2EneCew0WM5ErbKM7Rw/viewform?embedded=true"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfO_EaDnjLF3kNGmof9szaCUt81xuD3MmiwR-u2Dzq8d0wJQw/viewform?embedded=true"
       width="100%"
-      height="610"
+      height="800"
       frameborder="0"
       marginheight="0"
       marginwidth="0"
@@ -12,7 +12,7 @@
   </q-card>
   <q-card class="card mobile">
     <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSeV4kZsapvcyjLV51he7Fezl6X332D2EneCew0WM5ErbKM7Rw/viewform?embedded=true"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfO_EaDnjLF3kNGmof9szaCUt81xuD3MmiwR-u2Dzq8d0wJQw/viewform?embedded=true"
       width="100%"
       height="510"
       frameborder="0"
@@ -35,7 +35,7 @@ export default defineComponent({
 <style scoped>
 .card {
   width: 100%;
-  height: 620px;
+  height: 809px;
 }
 .pc {
   display: block;

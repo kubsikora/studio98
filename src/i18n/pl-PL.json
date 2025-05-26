@@ -4,7 +4,13 @@
   "Menu": {
     "main": "Strona główna",
     "photos": "Galeria",
-    "phone": "Kontakt"
+    "phone": "Kontakt",
+    "slogan": {
+      "1": "Twój relaks ",
+      "2": "w cieniu",
+      "3": "naszych pergoli"
+    },
+    "contact": "Skontaktuj sie z nami juz teraz"
   },
   "Lower": {
     "t1": "Stalowe pergole, wyposażone w zadaszenie, zapewnią idealną ochronę przed słońcem.",

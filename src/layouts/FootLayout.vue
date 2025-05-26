@@ -61,7 +61,9 @@
               {{ $t('Siedziba firmy') }}
             </q-item-label>
             <q-item-label v-if="showtext" class="text-bold text-grey-6">
-              STUDIO98 Roman Sikora 41-923 Bytom Ul. Lipowa 12 NIP 626-210-94-80
+              STUDIO98 Roman Sikora <br />
+              41-923 Bytom Ul. Lipowa 12 <br />
+              NIP 626-210-94-80
             </q-item-label>
           </div>
         </q-item>
@@ -75,7 +77,8 @@
               {{ $t('Produkcja') }}
             </q-item-label>
             <q-item-label v-if="showtext" class="text-bold text-grey-6">
-              41-902 Bytom Ul. Karola Miarki 66
+              41-902 Bytom <br />
+              Ul. Karola Miarki 66
             </q-item-label>
           </div>
         </q-item>
