@@ -31,7 +31,7 @@
       ><gallery-popup :pics="photoindexpc" :id="choosen"
     /></q-dialog>
   </div>
-  <div class="mobile">
+  <div class="mobile mb">
     <table>
       <tr v-for="(photos, index) in photoindex" :key="index">
         <td
@@ -53,7 +53,8 @@
     /></q-dialog>
   </div>
   <div class="background"></div>
-  <foot-layout style="margin-top: 10px" />
+  <foot-layout style="margin-top: 10px" class="pcgallery" />
+  <div class="mobile-footer mobile">&copy; Copyright © Studio98 2025</div>
 </template>
 
 <script lang="ts">
@@ -233,6 +234,25 @@ td {
     height: 120px;
     max-width: 200px;
     border: 1px solid rgba(0, 0, 0, 0.6);
+  }
+  .mobile-footer {
+    display: block !important;
+    width: 100vw;
+    background: #222;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 18px 0;
+    font-size: 15px;
+    border-top: 1px solid #333;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .mb {
+    margin-bottom: 0px;
   }
 }
 </style>

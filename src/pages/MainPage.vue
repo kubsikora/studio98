@@ -1,151 +1,182 @@
 <template>
-  <q-img src="/img/logo.png" alt="logo" :size="200" class="logo q-mr-md" />
+  <q-img src="/img/logo.png" alt="logo" :size="200" class="logo l q-mr-md" />
 
   <q-img class="main-pics q-mt-xl prevent-select pc" src="/img/DSC_0034s.png" />
   <q-img
-    class="main-pics q-mt-xl prevent-select mobile"
+    class="main-pics q-mt-xl prevent-select mobile t"
     src="/img/DSC_0034s.png"
   />
-  <div
-    class="divdown row pc"
-    style="
-      top: 1000px;
-      overflow-x: hidden;
-      overflow-y: hidden;
-      margin-bottom: -1600px;
-    "
-  >
-    <table class="q-mb-xl pc">
-      <tr>
-        <td>
-          <p class="txt">
-            Marzysz o przestrzeni, która będzie idealnym miejscem do odpoczynku,
-            pracy i spotkań z bliskimi? Z nami stworzysz taras, który będzie
-            spełnieniem Twoich oczekiwań! Oferujemy nowoczesne pergole, które
-            zapewnią Ci komfort niezależnie od pogody - zarówno w upalne dni,
-            jak i podczas deszczowych chwil.
-          </p>
-        </td>
-        <td>
-          <div
-            ref="elementRef"
-            :class="['hidden-right', { visible: isVisible }]"
+  <div class="divdown row" style="overflow-x: hidden; overflow-y: hidden">
+    <div class="row">
+      <div class="col-lg-6 q-pa-xl col">
+        <p class="txt y">
+          Marzysz o przestrzeni, która będzie idealnym miejscem do odpoczynku,
+          pracy i spotkań z bliskimi? Z nami stworzysz taras, który będzie
+          spełnieniem Twoich oczekiwań! Oferujemy nowoczesne pergole, które
+          zapewnią Ci komfort niezależnie od pogody - zarówno w upalne dni, jak
+          i podczas deszczowych chwil.
+        </p>
+      </div>
+      <div class="col-md-6 col-sm-8">
+        <div ref="elementRef" :class="['hidden-right', { visible: isVisible }]">
+          <q-img
+            src="img/gallery/lower2.png"
+            style="
+              max-height: 100%;
+              height: 400px;
+              width: 850px;
+              max-width: 100%;
+              margin-left: -180px;
+              border-radius: 16px;
+            "
+            class="pc"
           >
-            <q-img
-              src="img/gallery/lower2.png"
+            <p
               style="
-                max-height: 100%;
-                height: 400px;
-                width: 850px;
-                max-width: 100%;
-                margin-left: -180px;
-                border-radius: 16px;
+                margin-left: 20px;
+                position: absolute;
+                bottom: 0;
+                margin-top: 20px;
+                font-size: 30px;
+                color: white;
+                -webkit-text-stroke: 1px black;
               "
+              class="pc"
             >
-              <p
-                style="
-                  margin-left: 20px;
-                  position: absolute;
-                  bottom: 0;
-                  margin-top: 20px;
-                  font-size: 30px;
-                  color: white;
-                  -webkit-text-stroke: 1px black;
-                "
-              >
-                PERGOLA UROZMAIZONA FIERANKAMI
-              </p>
-            </q-img>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div
-            ref="elementRef1"
-            :class="['hidden-left', { visible: isVisible1 }]"
+              PERGOLA UROZMAIZONA FIERANKAMI
+            </p>
+          </q-img>
+        </div>
+        <q-img
+          src="img/gallery/lower2.png"
+          style="
+            max-height: 100%;
+            height: 400px;
+            width: 850px;
+            max-width: 100%;
+            margin-left: -180px;
+            border-radius: 16px;
+          "
+          class="mobile g"
+        ></q-img>
+      </div>
+    </div>
+    <div class="row q-mt-xl">
+      <div class="col-md-6 col-sm-12">
+        <div
+          ref="elementRef1"
+          :class="['hidden-left', { visible: isVisible1 }]"
+        >
+          <q-img
+            src="img/gallery/lower1.png"
+            style="
+              max-height: 100%;
+              height: 400px;
+              width: 750px;
+              max-width: 100%;
+              margin-top: 0%;
+              border-radius: 16px;
+            "
+            class="pc"
           >
-            <q-img
-              src="img/gallery/lower1.png"
+            <p
               style="
-                max-height: 100%;
-                height: 400px;
-                width: 750px;
-                max-width: 100%;
-                margin-top: 0%;
-                border-radius: 16px;
+                margin-right: 20px;
+                position: absolute;
+                bottom: 0;
+                margin-top: 20px;
+                font-size: 30px;
+                right: 0;
+                color: white;
+                -webkit-text-stroke: 1px black;
               "
+              class="pc"
             >
-              <p
-                style="
-                  margin-right: 20px;
-                  position: absolute;
-                  bottom: 0;
-                  margin-top: 20px;
-                  font-size: 30px;
-                  right: 0;
-                  color: white;
-                  -webkit-text-stroke: 1px black;
-                "
-              >
-                SKŁADANY DACH
-              </p>
-            </q-img>
-          </div>
-        </td>
-        <td>
-          <p class="txt">
-            Nasze pergole to połączenie funkcjonalności, estetyki i trwałości.
-            Dzięki innowacyjnym rozwiązaniom możesz w pełni cieszyć się każdą
-            chwilą spędzoną na świeżym powietrzu - czy to podczas pracy w
-            ogrodzie, relaksu z książką, czy spotkań z rodziną i przyjaciółmi.
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p class="txt">
-            W STUDIO98 wierzymy, że Twój taras to miejsce, w którym ład i
-            komfort idą w parze z wyjątkowym stylem. Dzięki naszym produktom
-            stworzysz przestrzeń, która będzie zachwycać przez cały rok,
-            niezależnie od zmieniających się warunków atmosferycznych. Z nami
-            każda chwila na tarasie to czysta przyjemność!
-          </p>
-        </td>
-        <td>
-          <div
-            ref="elementRef2"
-            :class="['hidden-right', { visible: isVisible2 }]"
+              SKŁADANY DACH
+            </p>
+          </q-img>
+        </div>
+      </div>
+      <div class="col-md-6 q-pa-xl col-sm-12">
+        <p class="txt">
+          Nasze pergole to połączenie funkcjonalności, estetyki i trwałości.
+          Dzięki innowacyjnym rozwiązaniom możesz w pełni cieszyć się każdą
+          chwilą spędzoną na świeżym powietrzu - czy to podczas pracy w
+          ogrodzie, relaksu z książką, czy spotkań z rodziną i przyjaciółmi.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <q-img
+        src="img/gallery/lower1.png"
+        style="
+          max-height: 100%;
+          height: 400px;
+          width: 750px;
+          max-width: 100%;
+          margin-top: 0%;
+          border-radius: 16px;
+        "
+        class="mobile g"
+      ></q-img>
+    </div>
+    <div class="row q-mt-xl">
+      <div class="col-md-6 q-pa-xl col-sm-12">
+        <p class="txt">
+          W STUDIO98 wierzymy, że Twój taras to miejsce, w którym ład i komfort
+          idą w parze z wyjątkowym stylem. Dzięki naszym produktom stworzysz
+          przestrzeń, która będzie zachwycać przez cały rok, niezależnie od
+          zmieniających się warunków atmosferycznych. Z nami każda chwila na
+          tarasie to czysta przyjemność!
+        </p>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div
+          ref="elementRef2"
+          :class="['hidden-right', { visible: isVisible2 }]"
+        >
+          <q-img
+            src="img/gallery/lower3.png"
+            style="
+              max-height: 100%;
+              height: 400px;
+              width: 850px;
+              max-width: 100%;
+              margin-left: -180px;
+              border-radius: 16px;
+            "
+            class="pc"
           >
-            <q-img
-              src="img/gallery/lower3.png"
+            <p
               style="
-                max-height: 100%;
-                height: 400px;
-                width: 850px;
-                max-width: 100%;
-                margin-left: -180px;
-                border-radius: 16px;
+                margin-left: 20px;
+                position: absolute;
+                bottom: 0;
+                margin-top: 20px;
+                font-size: 30px;
+                color: white;
+                -webkit-text-stroke: 1px black;
               "
+              class="pc"
             >
-              <p
-                style="
-                  margin-left: 20px;
-                  position: absolute;
-                  bottom: 0;
-                  margin-top: 20px;
-                  font-size: 30px;
-                  color: white;
-                  -webkit-text-stroke: 1px black;
-                "
-              >
-                DREWNIANE ROLETY
-              </p>
-            </q-img>
-          </div>
-        </td>
-      </tr>
-    </table>
+              DREWNIANE ROLETY
+            </p>
+          </q-img>
+        </div>
+        <q-img
+          src="img/gallery/lower3.png"
+          style="
+            max-height: 100%;
+            height: 400px;
+            width: 850px;
+            max-width: 100%;
+            margin-left: -180px;
+            border-radius: 16px;
+          "
+          class="mobile g"
+        ></q-img>
+      </div>
+    </div>
     <p class="txt2 row q-mt-xl q-mb-xl pc">
       Stalowe pergole z zadaszeniem z poliwęglanu to nowoczesne rozwiązanie,
       które zapewnia wyjątkową ochronę przed warunkami atmosferycznymi, w tym
@@ -214,7 +245,6 @@
       <div class="top-right-panel"></div>
     </div> -->
   </div>
-  <main-page-content class="mobile" />
   <br />
   <div class="pc island">
     <div style="width: 80%" />
@@ -256,17 +286,17 @@
       </div>
     </div>
   </div>
-  <foot-layout style="margin-top: 1700px" />
+  <foot-layout class="pc" />
+  <div class="mobile-footer mobile">&copy; Copyright © Studio98 2025</div>
 </template>
 
 <script lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
 import FootLayout from 'src/layouts/FootLayout.vue';
 import { useRouter } from 'vue-router';
-import MainPageContent from './MainPageContent.vue';
 
 export default {
-  components: { FootLayout, MainPageContent },
+  components: { FootLayout },
   setup() {
     const router = useRouter();
 
@@ -587,92 +617,166 @@ td {
   top: 0px;
 }
 @media only screen and (max-width: 600px) {
+  body,
+  html,
+  .bg,
+  .divdown {
+    background: #111312 !important;
+    background-color: #111312 !important;
+  }
+  .logo {
+    max-width: 50vw !important;
+    margin-top: 200px !important;
+    margin-bottom: 18px !important;
+    margin-left: 25vw !important;
+    display: block !important;
+  }
   .main-pics {
-    height: 400px;
-    width: 100%;
-    z-index: 0;
+    margin-top: 10px !important;
+    margin-bottom: 18px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    display: block !important;
+    zoom: 90%;
+  }
+  .q-img,
+  .q-img img {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    display: block !important;
+    margin: 0 auto 18px auto !important;
+    margin-top: 10px !important;
+    background: #111312 !important;
+  }
+  .q-img p {
+    font-size: 16px !important;
+    /* margin-left: 10px !important;
+    margin-right: 10px !important; */
+    bottom: 0 !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .txt,
+  .txt2 {
+    margin-top: 10px !important;
+  }
+  .mobile-footer {
+    display: block !important;
+    width: 100vw;
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 18px 0 18px 0;
+    font-size: 15px;
+    margin-top: 30px;
+    border-top: 1px solid #333;
     position: relative;
-    background: #111312;
-    overflow: hidden;
-    margin-top: 10px;
-    margin-left: 0px;
+    z-index: 100;
+    color: rgba(255, 255, 255, 0.5);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .pc .mobile-footer {
+    display: none !important;
   }
   .pc {
-    display: none;
+    display: none !important;
   }
   .mobile {
-    display: block;
+    display: block !important;
   }
-  .islan {
-    width: 0px;
-  }
-  .carousel {
-    background-color: #111312;
-    height: 400px;
-    width: 100%;
-    margin-top: -30px;
-  }
-  .car-pics {
-    margin-left: 0%;
-    height: 360px;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-  }
-  .text-h4 {
-    font-size: 14px;
-  }
-  .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -50px;
-  }
-  .table {
-    display: none;
-  }
-  .mobiletable {
-    display: block;
-    width: 100%;
-  }
-  .left-panel {
-    width: 100%;
-    height: 400px;
-    margin-bottom: 10px;
-  }
-  .top-right-panel {
-    width: 100%;
-    height: 350px;
-  }
-
-  .middle-right-panel {
-    width: 100%;
-    height: 300px;
-    margin-bottom: 10px;
-    margin-top: 0;
+  .island {
+    width: 100vw !important;
+    min-width: 0;
+    right: 0;
+    left: 0;
+    position: static;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
   }
   .divdown {
     background-color: #525453;
-    height: 1100px;
-    margin-top: -1px;
-    padding-top: 20px;
-    display: flex;
-    padding-left: 10%;
-    padding-right: 10%;
+    min-height: unset;
+    height: auto;
+    margin-top: 0px !important;
+    padding-top: 0px;
+    display: block;
+    width: 100vw;
+    box-sizing: border-box;
+    zoom: 90%;
+  }
+  .row {
+    display: block !important;
+    width: 100% !important;
+    margin: 10px !important;
+    padding-left: 0px;
+  }
+  .col-lg-6,
+  .col-md-6,
+  .col-sm-8,
+  .col-sm-12,
+  .col,
+  .q-pa-xl {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    display: block !important;
+  }
+  .txt,
+  .txt2 {
+    color: white;
+    font-size: 16px !important;
+    width: 100% !important;
+    padding: 0 10px 0 10px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+  .txt2 {
+    padding-right: 10px !important;
+  }
+  .maintext {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 10px;
+    font-size: 16px !important;
+    border-radius: 16px;
+    height: auto !important;
   }
   .gradientbig {
-    height: 100px;
-    background: #111312;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 C10,10 30,0 50,10 C70,20 90,5 100,10 L100,20 L0,20 Z" fill=\'%23111312\'/><path d="M0,20 C10,15 30,5 50,15 C70,25 90,10 100,15 L100,20 L0,20 Z" fill=\'%23525453\'/></svg>');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
+    height: 60px !important;
+    margin-top: 0 !important;
   }
-  .logo {
-    max-width: 80%;
-    display: block;
-    margin-top: 80px;
-    margin-left: 10%;
+  .q-mt-xl,
+  .q-mb-xl {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  .t {
+    margin-bottom: -10px !important;
+    z-index: -1;
+    margin-top: 50px !important;
+  }
+  .y {
+    margin-top: 100px !important;
+  }
+  .l {
+    zoom: 90%;
+    margin-top: 100px !important;
+  }
+
+  .g {
+    margin-bottom: 20px;
   }
 }
 </style>

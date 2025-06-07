@@ -150,11 +150,38 @@ q-tab {
   .tabs {
     color: rgb(77, 0, 242);
     height: 100%;
-    width: 400px;
-    font-size: 7px;
+    width: 100vw;
+    font-size: 12px;
+    min-width: 0;
+    max-width: 100vw;
+    padding: 0;
   }
   .logo {
-    display: none;
+    display: none !important;
+  }
+  .q-mt-md,
+  .q-icon[name='phone'],
+  p[style*='507 732 936'],
+  .q-icon {
+    display: none !important;
+  }
+  .bar {
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 4px !important;
+  }
+  .fixed-bar {
+    height: 44px !important;
+    min-height: 44px !important;
+  }
+  .w-40 {
+    width: 10px !important;
+    min-width: 0 !important;
+  }
+  q-tab {
+    font-size: 18px !important;
+    min-width: 0 !important;
+    padding: 0 4px !important;
   }
   .Leg {
     background: white;
@@ -165,7 +192,6 @@ q-tab {
     position: absolute;
     right: 0;
   }
-
   .Legicon {
     font-size: 55px;
     color: rgba(0, 0, 0, 0.1);

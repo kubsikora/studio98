@@ -5,8 +5,8 @@
     </p>
   </center>
   <div style="display: flex">
-    <div style="width: 10%" />
-    <div class="q-gutter-md q-ml-xl" style="width: 27%">
+    <div class="smol" />
+    <div class="q-gutter-md q-ml-xl ramki">
       <q-expansion-item
         default-opened
         expand-separator
@@ -61,7 +61,7 @@
       >
         <q-card-section class="row q-pa-xs text-white">
           <q-list class="row text-white">
-            <q-item class="col-6">
+            <q-item class="col-md-6 col-sm-12">
               <div>
                 <q-item-label caption class="text-white prevent-select">
                   {{ $t('Number telefonu') }}
@@ -71,7 +71,7 @@
                 </q-item-label>
               </div>
             </q-item>
-            <q-item class="col-6">
+            <q-item class="col-md-6 col-sm-12">
               <div>
                 <q-item-label caption class="text-white prevent-select">
                   {{ $t('Email') }}
@@ -103,6 +103,7 @@
         padding-left: 220px;
         font-size: 20px;
       "
+      class="pc"
     >
       <p class="text-grey-5 prevent-select">{{ $t('contact.form') }}</p>
       <center>
@@ -119,9 +120,11 @@
     <form-popup />
   </q-dialog>
   <foot-layout
-    style="margin-top: 10px; position: absolute; bottom: 0"
+    style="margin-top: 0px; position: absolute; bottom: 0"
     :showtext="false"
+    class="pc"
   />
+  <div class="mobile-footer mobile">&copy; Copyright © Studio98 2025</div>
 </template>
 
 <script lang="ts">
@@ -163,7 +166,6 @@ export default {
   background-size: cover;
   background-position: bottom;
   position: relative;
-  bottom: 0;
 }
 .q-gutter-md.row {
   display: flex;
@@ -174,6 +176,9 @@ export default {
 .nazwa {
   margin-top: 70px;
   margin-bottom: 50px;
+}
+.ramki {
+  width: 27%;
 }
 a {
   font-size: 1.7cap;
@@ -225,9 +230,32 @@ a {
 .btn:hover {
   background-color: rgb(25, 118, 210);
 }
+.smol {
+  width: 10%;
+}
 @media only screen and (max-width: 600px) {
   .mobile {
     display: block;
+  }
+  .mobile-footer {
+    display: block !important;
+    width: 100vw;
+    background: #222;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 18px 0;
+    font-size: 15px;
+    border-top: 1px solid #333;
+    position: fixed !important;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .smol {
+    width: 0%;
   }
   .q-gutter-md.row {
     display: none;
@@ -257,6 +285,15 @@ a {
   .nazwa {
     margin-top: 60px;
     margin-bottom: -10px;
+  }
+  .pc {
+    display: none !important;
+  }
+  .ramki {
+    width: 95%;
+  }
+  .q-ml-xl {
+    margin: 0px !important;
   }
 }
 </style>
